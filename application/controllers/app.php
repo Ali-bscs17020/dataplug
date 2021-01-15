@@ -221,7 +221,7 @@ class App extends CI_Controller {
      * Action for application users
      * @author Zahid Nadeem <zahidiubb@yahoo.com>
      */
-    public function appassignusers($slug) {
+    public function AppAssignUsers($slug) {
         $app_id = $slug;
         $this->load->library('form_validation');
         $session_data = $this->session->userdata('logged_in');
@@ -297,7 +297,7 @@ class App extends CI_Controller {
      * Action for application users
      * @author Zahid Nadeem <zahidiubb@yahoo.com>
      */
-    public function appusers() {
+    public function Appusers() {
         if (!$this->acl->hasPermission('app_users', 'view')) {
             $this->session->set_flashdata('validate', array('message' => "You don't have enough permissions to do this task.", 'type' => 'warning'));
             redirect('/');
@@ -395,7 +395,7 @@ class App extends CI_Controller {
      * Action for ajax application users
      * @author  Irfan Javed<irfanjvd@gamil.com>
      */
-    public function ajaxappusers() {
+    public function AjaxAppUsers() {
 
         if (!$this->acl->hasPermission('app_users', 'view')) {
             $this->session->set_flashdata('validate', array('message' => "You don't have enough permissions to do this task.", 'type' => 'warning'));
@@ -462,7 +462,7 @@ class App extends CI_Controller {
 
 
     }
-    public function appusersimportcsv(){
+    public function AppUsersImportSsv(){
 
              if (!$this->acl->hasPermission('app_users', 'add')) {
                 $this->session->set_flashdata('validate', array('message' => "You don't have enough permissions to do this task.", 'type' => 'warning'));
@@ -561,7 +561,7 @@ class App extends CI_Controller {
      * Action for application users
      * @author Zahid Nadeem <zahidiubb@yahoo.com>
      */
-    public function import_app_user_csv() {
+    public function Import_App_User_Csv() {
        
 
         $session_data = $this->session->userdata('logged_in');
@@ -781,7 +781,7 @@ class App extends CI_Controller {
      * @param integer $user_id
      * @author Zahid Nadeem <zahidiubb@yahoo.com>
      */
-    public function appusersview() {
+    public function AppUsersView() {
 
         if (!$this->acl->hasPermission('users', 'add')) {
             $this->session->set_flashdata('validate', array('message' => "You don't have enough permissions to do this task.", 'type' => 'warning'));
@@ -850,7 +850,7 @@ class App extends CI_Controller {
      * @param integer $app_id
      * @author Zahid Nadeem <zahidiubb@yahoo.com>
      */
-    function appuser_imei_already_exist($imei_no, $app_id) {
+    function AppUser_Imei_Already_Exist($imei_no, $app_id) {
         if ($this->app_model->appuser_imei_already_exist($imei_no, $app_id)) {
             $this->form_validation->set_message('appuser_imei_already_exist', 'The %s already registered for this app.');
             return false;
@@ -864,7 +864,7 @@ class App extends CI_Controller {
      * @param integer $app_id
      * @author Zahid Nadeem <zahidiubb@yahoo.com>
      */
-    function appuser_login_name_already_exist($login_user, $app_id) {
+    function Appuser_Login_Name_Already_Exist($login_user, $app_id) {
         if ($this->app_model->appuser_login_name_already_exist($login_user, $app_id)) {
             $this->form_validation->set_message('appuser_login_name_already_exist', 'The %s not available.');
             return false;
@@ -1223,7 +1223,7 @@ class App extends CI_Controller {
      * @param integer $app_id
      * @author Zahid Nadeem <zahidiubb@yahoo.com>
      */
-    public function editpopup($slug) {
+    public function EditPopUp($slug) {
 
         $app_id = $slug;
         $this->load->library('form_validation');
@@ -1355,7 +1355,7 @@ class App extends CI_Controller {
      * @param integer $app_id
      * @author Zahid Nadeem <zahidiubb@yahoo.com>
      */
-    public function appbuilder($slug) {
+    public function AppBuilder($slug) {
 
         $this->load->library('form_validation');
         if ($this->session->userdata('logged_in')) {
@@ -1508,7 +1508,7 @@ class App extends CI_Controller {
      * @param integer $app_id
      * @author Zahid Nadeem <zahidiubb@yahoo.com>
      */
-    function change_installed_app_status($app_id) {
+    function Change_Installed_App_Status($app_id) {
         //change status update
         $all_installed = $this->app_installed_model->get_app_installed_byappid($app_id);
         if ($all_installed) {
@@ -1532,7 +1532,7 @@ class App extends CI_Controller {
      * @param string $department_name
      * @author Zahid Nadeem <zahidiubb@yahoo.com>
      */
-    function department_name_exists($key) {
+    function Department_Name_Exists($key) {
         if ($this->department_model->department_already_exist($key)) {
             $this->form_validation->set_message('department_name_exists', 'The %s already exists');
             return false;
@@ -1546,7 +1546,7 @@ class App extends CI_Controller {
      * @param string $department_name
      * @author Zahid Nadeem <zahidiubb@yahoo.com>
      */
-    function app_already_exist($app_name, $department_id) {
+    function App_Already_Exist($app_name, $department_id) {
         if ($this->app_model->app_already_exist($app_name, $department_id)) {
             $this->form_validation->set_message('app_already_exist', 'The %s already exists');
             return false;
@@ -1560,7 +1560,7 @@ class App extends CI_Controller {
      * @param string $department_name
      * @author Zahid Nadeem <zahidiubb@yahoo.com>
      */
-    function check_app_name_availability() {
+    function Check_App_Name_availability() {
         $app_name = $this->input->post('app_name');
         $department_id = $this->input->post('department_id');
 
@@ -1625,7 +1625,7 @@ class App extends CI_Controller {
      * @param string $app_id
      * @author Zahid Nadeem <zahidiubb@yahoo.com>
      */
-    public function releasedapk($slug) {
+    public function ReleasedApk($slug) {
         if ($this->session->userdata('logged_in')) {
             $app_id = $slug;
             $app = $this->app_model->get_app($app_id);
@@ -1655,7 +1655,7 @@ class App extends CI_Controller {
      * @param string $app_id
      * @author Zahid Nadeem <zahidiubb@yahoo.com>
      */
-    public function createapk($slug) {
+    public function CreateApk($slug) {
         if ($this->session->userdata('logged_in')) {
             //for live
             //change directory path
@@ -1899,7 +1899,7 @@ class App extends CI_Controller {
      * @param string $det destination path
      * @author Zahid Nadeem <zahidiubb@yahoo.com>
      */
-    function recurse_copy($src, $dst) {
+    function Recurse_Copy($src, $dst) {
         $dir = opendir($src);
         $old = umask(0);
         @mkdir($dst, 0777);
@@ -1922,7 +1922,7 @@ class App extends CI_Controller {
      * @param string $deleteRootToo destination path
      * @author Zahid Nadeem <zahidiubb@yahoo.com>
      */
-    function recurse_delete($dir, $deleteRootToo) {
+    function Recurse_Delete($dir, $deleteRootToo) {
         if (!$dh = @opendir($dir)) {
             return;
         }
@@ -1948,7 +1948,7 @@ class App extends CI_Controller {
      * @param integer $app_name
      * @author Zahid Nadeem <zahidiubb@yahoo.com>
      */
-    function change_string_file($parray) {
+    function Change_String_File($parray) {
         $app_name = preg_replace("/[^A-Za-z0-9]/", " ", $parray['app_name']);
         $base_url = base_url();
         $version_update_url = $base_url . "api/syncdevice";
@@ -2006,7 +2006,7 @@ class App extends CI_Controller {
      * @param integer $version_code
      * @author Zahid Nadeem <zahidiubb@yahoo.com>
      */
-    function change_manifest_file($path, $package, $version, $version_code) {
+    function Change_Manifest_File($path, $package, $version, $version_code) {
 
         $data = simplexml_load_file($path);
         $data['package'] = $package;
@@ -2020,7 +2020,7 @@ class App extends CI_Controller {
      * @param integer $app_id
      * @author Zahid Nadeem <zahidiubb@yahoo.com>
      */
-    public function appsettings($slug) {
+    public function AppSettings($slug) {
         $app_id = $slug;
         $settings_exist = $this->app_model->get_app_settings($app_id);
         if ($settings_exist) {
@@ -2153,7 +2153,7 @@ class App extends CI_Controller {
 
     //function is for applicagtion settings list view, map view, graph view etc...
 
-    public function newappsettings($slug,$iframe=''){
+    public function NewAppSettings($slug,$iframe=''){
         ini_set ( 'memory_limit', '-1' );
         $app_id = $slug;
 //        get app all users
@@ -2478,7 +2478,7 @@ class App extends CI_Controller {
 
 
 
-    public function newformsettings($slug,$iframe=''){
+    public function NewFormSettings($slug,$iframe=''){
         ini_set ( 'memory_limit', '-1' );
         $app_id = $slug;
 //        get app all users
@@ -2641,7 +2641,7 @@ class App extends CI_Controller {
     }
 
     //get categories for reporting filters...
-    public function get_field_values(){
+    public function Get_Field_Values(){
         $form_id=$_POST['form_id'];
         $column=$_POST['column'];
         $value=$_POST['value'];
