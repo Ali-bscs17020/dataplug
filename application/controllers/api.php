@@ -2162,7 +2162,7 @@ class Api extends CI_Controller {
      */
     // http://www.dataplug.itu.edu.pk/api/getoptionapi?api=1&secret=fdkj378jk3g
     // http://www.dataplug.itu.edu.pk/api/getoptionapi?api=2&secret=k4743mn7hjr
-    public function getoptionapi() {
+    public function GetOptionApi() {
         $api = $this->input->get('api');
         $secret = $this->input->get('secret');
         $query = $this->db->query("SELECT * FROM api WHERE id = '$api' AND secret_key='$secret'");
@@ -2370,7 +2370,7 @@ class Api extends CI_Controller {
     }
 
     //for hospital watch app
-    public function hospitalwatchapi() {
+    public function HospitalWatChapi() {
         //if (isset($_REQUEST['app_id']) && isset($_REQUEST['last_date_stamp']) && isset($_REQUEST['security_token'])) {
         if (isset($_REQUEST['app_id'])) {
             $app_id = $_REQUEST['app_id'];
