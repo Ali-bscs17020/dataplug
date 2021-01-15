@@ -290,7 +290,7 @@ class Api extends CI_Controller {
      * @return json
      * @author Zahid Nadeem <zahidiubb@yahoo.com>
      */
-    public function syncdevice() {
+    public function syncDevice() {
         $version_code = $_REQUEST ['version_code'];
         $app_id = $_REQUEST ['app_id'];
         $imei_no = $_REQUEST ['imei_no'];
@@ -394,7 +394,7 @@ class Api extends CI_Controller {
      * @return json
      * @author Zahid Nadeem <zahidiubb@yahoo.com>
      */
-    public function saverecords() {
+    public function saveRecords() {
 
         $form_data = json_decode($_REQUEST ['form_data']);
         $imei_no = $_REQUEST ['imei_no'];
@@ -1108,7 +1108,7 @@ class Api extends CI_Controller {
         echo json_encode($jsone_array);
         exit();
     }
-    public function saverecordscron() {
+    public function saveRecordsCron() {
         //ob_get_level();
         //ob_start();
         ini_set ( 'memory_limit', '-1' );
@@ -1382,7 +1382,7 @@ class Api extends CI_Controller {
         
     }
 
-    public function saverecordsharzindagi() {
+    public function saveRecordSharZindagi() {
         $form_data = json_decode($_REQUEST['form_data'],true);
         $form_id=$form_data['form_id'];
         $imei_no=$form_data['imei_no'];
@@ -1616,7 +1616,7 @@ class Api extends CI_Controller {
      * @return json
      * @author Zahid Nadeem <zahidiubb@yahoo.com>
      */
-    public function saverecordsweb() {
+    public function saveRecordsWeb() {
         $form_data = json_decode($_REQUEST ['form_data']);
 
         $session_data = $this->session->userdata('web_logged_in');
