@@ -3021,7 +3021,7 @@ class App extends CI_Controller {
 
     /**
      *
-     * @param type $slug
+     * @param type $slug 
      * Delete app users
      * @author:ubaidullah.balti
      */
