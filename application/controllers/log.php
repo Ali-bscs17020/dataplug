@@ -107,7 +107,7 @@ class Log extends CI_Controller {
                         'before_record'=> (strlen($val['before_record']) < 20) ? $val['before_record'] : substr($val['before_record'], 0, 20) . '..',
                         'after_record'=> (strlen($val['after_record']) < 20) ? $val['after_record'] : substr($val['after_record'], 0, 20) . '..',
                         'app_name'=> $val['app_name'],
-                        'form_name'=> $val['form_name'],
+                        'form_name'=> $val['form_name'],w
                         'controller'=> $val['controller'],
                         'method'=> $val['method'],
                         'created_datetime'=> $val['created_datetime'],
