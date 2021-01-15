@@ -27,8 +27,8 @@ class Tracking extends CI_Controller {
         $altitude = $_REQUEST ['altitude'];
         $speed = $_REQUEST ['speed'];
         $route_id = $_REQUEST ['routeId'];
-        $gpsTime = date('Y-m-d H:i:s', strtotime($_REQUEST ['gpsTime']));
-        $deviceTS = date('Y-m-d H:i:s', strtotime($_REQUEST ['deviceTS']));
+        $gps_time = date('Y-m-d H:i:s', strtotime($_REQUEST ['gpsTime']));
+        $device_tS = date('Y-m-d H:i:s', strtotime($_REQUEST ['deviceTS']));
         $created_datetime = date('Y-m-d H:i:s');
         $dataresultnew = array(
             'app_id' => $app_id,
@@ -125,7 +125,7 @@ exit;*/
                 if (!$this->upload->do_upload('trackingFile')) {
 
                 }else{
-                  $fileData = $this->upload->data();
+                  $file_data = $this->upload->data();
                   $tracking_records = file_get_contents($abs_path.'/'.$fileData['file_name']);
 
                   $tracking_temp = array(
@@ -188,10 +188,10 @@ exit;*/
             exit;
         }
         //exit;
-        $newDistanceGeo=0;
-        $lastDistanceGeo=0; 
-        $newDistance=0;
-        $lastDistance=0;  
+        $new_distance_geo=0;
+        $last_distance_geo=0; 
+        $new_distance=0;
+        $last_distance=0;  
         foreach($result as $r)  
         {   
           //print_r($r);
@@ -213,8 +213,8 @@ exit;*/
        
         $gps_time = $params ['gpsTime'];
         $records = $tracking_records;
-        $distanceCovered = $newDistance;
-        $distanceCoveredGeo = $newDistanceGeo;
+        $distance_covered = $newDistance;
+        $distance_covered_geo = $newDistanceGeo;
 
         
         $gps_time = date('Y-m-d H:i:s', strtotime($gps_time));
@@ -319,10 +319,10 @@ exit;*/
         $result=$tracking_result[0]['records'];
         $result=json_decode($result,true);
         //exit;
-        $newDistanceGeo=0;
-        $lastDistanceGeo=0; 
-        $newDistance=0;
-        $lastDistance=0;  
+        $new_distance_geo=0;
+        $lasta_distance_geo=0; 
+        $new_distance=0;
+        $last_distance=0;  
         foreach($result as $r)  
         {   
           //print_r($r);
@@ -498,10 +498,10 @@ exit;*/
 //            exit;
             unset($records['imei_no']);
             foreach ($records as $r_key => $r_value) {
-                $gpsTime = date('Y-m-d H:i:s', strtotime($r_value['gpsTime']));
-                $deviceTS = date('Y-m-d H:i:s', strtotime($r_value['deviceTS']));
+                $gps_time = date('Y-m-d H:i:s', strtotime($r_value['gpsTime']));
+                $device_ts = date('Y-m-d H:i:s', strtotime($r_value['deviceTS']));
                 $created_datetime = date('Y-m-d H:i:s');
-                $dataresultnew = array(
+                $data_result_new = array(
                     'app_id' => $lval['app_id'],
                     'imei_no' => $r_value['imei_no'],
                     'location' => $r_value['location'],
