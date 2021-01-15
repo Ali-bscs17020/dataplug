@@ -106,7 +106,8 @@ class App extends CI_Controller {
             $data2= array("sEcho" => intval($_GET['sEcho']),
                 "iTotalRecords" => $total_apps,
                 "iTotalDisplayRecords" => $total_apps,);
-            foreach ($apps as $app) {
+            foreach ($apps as $apps)
+            {
                 $formbyapp = $this->form_model->get_form_by_app($app['id']);
 
                 // $form_id = '';
@@ -148,7 +149,8 @@ class App extends CI_Controller {
                 $forms_list = array();
                 //$all_forms = $this->form_model->get_form_by_app($app['id']);
                 $results_count=0;
-                foreach ($formbyapp as $forms) {
+                foreach ($formbyapp as $forms)
+                {
                     //$forms_list[] = array('form_id' => $forms['form_id'], 'form_name' => $forms['form_name']);
                     //$table_exist_bit = $this->form_results_model->check_table_exits('zform_' . $forms['form_id']);
                     //if($table_exist_bit['count(*)']==1){
@@ -369,7 +371,8 @@ class App extends CI_Controller {
         $departments = $this->department_model->get_department();
 
         $dep[''] = 'Select';
-        foreach ($departments as $row) {
+        foreach ($departments as $row)
+        {
             $dep[$row['id']] = $row['name'];
         }
         if ($this->acl->hasSuperAdmin()) {
@@ -414,7 +417,8 @@ class App extends CI_Controller {
         $batch = array();
         $departments = $this->department_model->get_department();
         $dep[''] = 'Select';
-        foreach ($departments as $row) {
+        foreach ($departments as $row)
+        {
             $dep[$row['id']] = $row['name'];
         }
 
@@ -740,7 +744,8 @@ class App extends CI_Controller {
                 $new_imei_no = $this->input->post('imei_no');
                 $imei_update_array = array('imei_no'=>$new_imei_no);
                 $all_forms = $this->form_model->get_form_by_app($app_id);
-                foreach ($all_forms as $forms) {
+                foreach ($all_forms as $forms)
+                {
                     $form_id = $forms['form_id'];
                     $this->db->where('imei_no', $old_imei_no);
                     $this->db->update('zform_'.$form_id, $imei_update_array);
@@ -757,7 +762,8 @@ class App extends CI_Controller {
 
         $departments = $this->department_model->get_department();
         $dep[''] = 'Select';
-        foreach ($departments as $row) {
+        foreach ($departments as $row)
+        {
             $dep[$row['id']] = $row['name'];
         }
 
@@ -820,7 +826,8 @@ class App extends CI_Controller {
 
         $departments = $this->department_model->get_department();
         $dep[''] = 'Select';
-        foreach ($departments as $row) {
+        foreach ($departments as $row) 
+        {
             $dep[$row['id']] = $row['name'];
         }
 
@@ -885,7 +892,8 @@ class App extends CI_Controller {
             $departments = $this->department_model->get_department();
             if ($this->acl->hasSuperAdmin()) {
                 $dep[''] = 'Select';
-                foreach ($departments as $row) {
+                foreach ($departments as $row) 
+                {
                     $dep[$row['id']] = $row['name'];
                 }
                 $data['departments'] = $dep;
@@ -1402,7 +1410,8 @@ class App extends CI_Controller {
                 $allform = $this->form_model->get_form_by_app($app_id);
             }
             $formdata = array();
-            foreach ($allform as $formvalue) {
+            foreach ($allform as $formvalue)
+            {
                 $formdata[] = array(
                     'form_id' => $formvalue['form_id'],
                     'title' => $formvalue['form_name'],
@@ -1793,7 +1802,8 @@ class App extends CI_Controller {
                     fwrite($Handleapp, $appFullDescription);
                     fclose($Handleapp);
                 }
-                foreach ($forms as $form) {
+                foreach ($forms as $form)
+                {
                     $formId = $form['form_id'];
                     $formName = $form['form_name'];
                     $formDescription = $form['full_description'];
@@ -2167,7 +2177,8 @@ class App extends CI_Controller {
         $graph_view_settings_filter='';
         $sms_settings_filter='';
         $all_forms_columns=array();
-        foreach($app_forms as $key=>$val){
+        foreach($app_forms as $key=>$val)
+        {
 //            get table columns name...
             $possible_filter_selected=$val['possible_filters'];
             $default_filter_selected=$val['filter'];
@@ -2250,7 +2261,8 @@ class App extends CI_Controller {
                     $this->db->where('setting_type', $setting_type);
                 }
 //                Send message
-                foreach($users as $val){
+                foreach($users as $val)
+                {
                     $result=explode("_",$val);
                     $mobile_number=$result[0];
                     $name=$result[1];
@@ -2637,7 +2649,8 @@ class App extends CI_Controller {
         $result=$this->db->query("select distinct $column from $table_name where $column LIKE '%$value%'")->result_array();
         $i=0;
         $options=array();
-        foreach($result as $key=>$val){
+        foreach($result as $key=>$val)
+        {
             $field_value = str_replace(" ", "_", $val[$column]);
             $options[$i]['value']=$field_value;
             $options[$i]['label']=$val[$column];
@@ -2679,7 +2692,8 @@ class App extends CI_Controller {
             $directory = $site_settings['directory_path'] . DIRECTORY_SEPARATOR . "assets" . DIRECTORY_SEPARATOR . "images" . DIRECTORY_SEPARATOR . "map_pins" . DIRECTORY_SEPARATOR;
             $images = glob($directory . "*.png");
 
-            foreach ($images as $key => $val) {
+            foreach ($images as $key => $val)
+            {
                 $image_result = explode(DIRECTORY_SEPARATOR, $val);
                 $image_name = end($image_result);
 
@@ -2722,10 +2736,12 @@ class App extends CI_Controller {
         if(!empty($result)) {
             $pins_data=json_decode($result[0]['pins'], true);
             $table="<div class='row'><table>";
-            foreach($pins_data as $key=>$val){
+            foreach($pins_data as $key=>$val)
+            {
                 $key_new=strtoupper(str_replace("_"," ",$key));
                 $table.="<tr><th colspan='2'>$key_new</th></tr>";
-                foreach($val as $field=>$img){
+                foreach($val as $field=>$img)
+                {
                     $field=str_replace("_"," ",$field);
                     $image_url=base_url()."assets/images/map_pins/$img";
                     $table.="
