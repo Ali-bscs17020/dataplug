@@ -252,7 +252,7 @@ class Cron extends CI_Controller {
                 }
 
 
-                $dataresultnew = array(
+                $data_result_new = array(
                     'form_id' => $form_id,
                     'imei_no' => $imei_no,
                     'location' => $location,
@@ -276,7 +276,7 @@ class Cron extends CI_Controller {
                     }
                 }
 
-                $dataresultnew1 = array_merge($dataresultnew, $record);
+                $data_result_new1 = array_merge($dataresultnew, $record);
 
 
                 // try{
