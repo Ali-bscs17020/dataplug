@@ -6,7 +6,7 @@ class Form_Results_model extends CI_Model {
         $this->load->database();
     }
 
-    public $perMap = 5000;
+    public $per_map = 5000;
 
     /**
      * Return form resutls only for filters with limit 
@@ -734,8 +734,8 @@ class Form_Results_model extends CI_Model {
             if (count($heading_counter_array) <= 1) {
                 $table_header_text .= '1,1,';
             }
-            $lastComPosition = strrpos($table_header_text, ',');
-            $table_header_text = substr($table_header_text, 0, $lastComPosition);
+            $last_com_position = strrpos($table_header_text, ',');
+            $table_header_text = substr($table_header_text, 0, $last_com_position);
             //search code ends here
 
 //            if (in_array($filter_attribute_search, $heading_counter_array)) {
@@ -815,7 +815,7 @@ class Form_Results_model extends CI_Model {
                         } else {
                             $join_cond = "LEFT JOIN app_users au ON fr.imei_no=au.imei_no AND au.app_id=$app_id";
                         }
-                        $newWhere = 'fr.' . $filter_attribute_search;
+                        $new_where = 'fr.' . $filter_attribute_search;
                         $query = "SELECT fr.imei_no
                         FROM " . $table_name . " fr
                         $join_cond
