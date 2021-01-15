@@ -455,7 +455,7 @@ class Customreports extends CI_Controller {
 
             $data['district_categorized'] = $final_district_wise_array2;
 
-            $totalRecords = 0;
+            $total_Records = 0;
             $category_list_count = array();
 
             $category_count = $this->form_results_model->getCountCatgoryBaseNew($form_id, "", $filter_attribute, $from_date, $to_date, $selected_district = '');
@@ -1055,7 +1055,7 @@ class Customreports extends CI_Controller {
             foreach ($category_list as $category) {
                 $category_count = $this->form_results_model->getCountCatgoryBased($slug, $category, $filter_attribute);
                 $category_list_count = array_merge($category_list_count, array($category => $category_count));
-                $totalRecords += $category_count;
+                $total_Records += $category_count;
             }
             $category_list_count[] = arsort($category_list_count);
             array_pop($category_list_count);
@@ -1125,7 +1125,7 @@ class Customreports extends CI_Controller {
         /*
          * datatable process ends herer-------
          */
-        $totalRecords = 0;
+        $total_Records = 0;
         $users_uc_set = array();
         $uc_counted = array();
         foreach ($record_array_final as $record) {
@@ -1135,7 +1135,7 @@ class Customreports extends CI_Controller {
                 if ($users_count > 0) {
                     $users_uc_set = array_merge($users_uc_set, array($uc_name => $users_count));
                 }
-                $totalRecords += $users_count;
+                $total_Records += $users_count;
                 $uc_counted [] = $uc_name;
             }
         }
@@ -1202,7 +1202,7 @@ class Customreports extends CI_Controller {
         /*
          * datatable process ends herer-------
          */
-        $totalRecords = 0;
+        $total_Records = 0;
         $category_uc_set = array();
         $uc_counted = array();
 
