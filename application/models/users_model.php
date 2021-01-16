@@ -9,7 +9,7 @@ Class Users_model extends CI_Model {
      * @return boolean
      * @author Zahid Nadeem <zahidiubb@yahoo.com>
      */
-    function login($username, $password) {
+    function getLogin($username, $password) {
         $this->db->select('u.id id, u.email, u.username,u.first_name,u.last_name, u.password,d.id department_id,d.name department_name, u.parent_id, u.group_id, u.is_deleted, u.status,u.verification_code,u.default_url, u.district');
         $this->db->from('users u');
         $this->db->join('users_group ug', 'u.group_id = ug.id', 'left');
