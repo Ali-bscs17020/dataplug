@@ -16,7 +16,7 @@ class Tracking extends CI_Controller {
      * @return json
      * @author Zahid Nadeem <zahidiubb@yahoo.com>
      */
-    public function savetracking() {
+    public function Save_Tracking() {
 
         $app_id = $_REQUEST ['appId'];
         $imei_no = $_REQUEST ['imei_no'];
@@ -76,7 +76,7 @@ class Tracking extends CI_Controller {
         sleep(1);
 
 
-        add_tracking_table($app_id);
+        addTrackingTable($app_id);
 
         $ret_ins = $this->db->insert('ztracking_' . $app_id, $dataresultnew);
 
@@ -98,7 +98,7 @@ class Tracking extends CI_Controller {
      * @return json
      * @author Zahid Nadeem <zahidiubb@yahoo.com>
      */
-    public function savetrackingbulk() {
+    public function Save_tracking_Bulk() {
         
         ini_set ( 'memory_limit', '-1' );
         $params = json_decode(file_get_contents('php://input'),true);       
@@ -169,7 +169,7 @@ exit;*/
           $route_id = $result[0]['routeId'];
         }
 
-        add_tracking_table($app_id);
+        addTrackingTable($app_id);
         
         //if this routid already received then not saved
         $this->db->select('*');
@@ -276,7 +276,7 @@ try {
 
 
 
-        public function testtrackingbulk1() {
+        public function Test_Tracking_Bulk1() {
         
         // ini_set ( 'memory_limit', '-1' );
         // $params = json_decode(file_get_contents('php://input'),true);       
@@ -483,7 +483,7 @@ exit;*/
       exit();
       }
      */
-    public function testbulktracking($slug) {
+    public function Test_Bulk_Tracking($slug) {
 
         $this->db->select();
         $this->db->from('mobile_tracking_log');
@@ -522,7 +522,7 @@ exit;*/
         exit();
     }
 
-    public function gettrackingrec($app_id) {
+    public function getTrackingRec($app_id) {
         ini_set ( 'memory_limit', '-1' );
         header('Access-Control-Allow-Origin: *');
         header('Access-Control-Allow-Methods: GET, POST');
