@@ -98,7 +98,8 @@ class Form_Results_model extends CI_Model {
      * Set offset for pagination
      * @author Ubaidullah Balti <ubaidcskiu@gmail.com>
      */
-    function getOffset() {
+    function getOffSet()
+    {
         $page = $this->input->post('page');
         if (!$page):
             $offset = 0;
