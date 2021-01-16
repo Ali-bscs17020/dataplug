@@ -34,7 +34,7 @@ class Log extends CI_Controller {
      * map to /index.php/welcome/<method_name>
      * @see http://codeigniter.com/user_guide/general/urls.html
      */
-    public function index() {
+    public function getIndex() {
         if ($this->session->userdata('logged_in')) {
             $session_data = $this->session->userdata('logged_in');
             session_to_page($session_data, $data);
@@ -78,7 +78,7 @@ class Log extends CI_Controller {
     }
 
 // Load record via ajax in datatable...
-    public function ajax_logs() {
+    public function Ajax_Logs() {
         if ($this->session->userdata('logged_in')) {
             $session_data = $this->session->userdata('logged_in');
             session_to_page($session_data, $data);
@@ -130,7 +130,7 @@ class Log extends CI_Controller {
     }
 
     //get actions for log view...
-    public function get_actions(){
+    public function getActions(){
         $query=$this->db->query("select DISTINCT action_type from log");
         $result=$query->result_array();
         $string='';
